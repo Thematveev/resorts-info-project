@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./static/resort/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <section class="info">
+        <h1 class="resort-name">{{weather['location']['name']}}</h1>
+        
+        <div class="blocks-container">
+            <div class="info-block">
+                <div class="block-title">
+                    <img src="./static/resort/temperature-high-solid.svg" alt="" class="block-icon">
+                    <span class="title-text">Temp</span>
+                </div>
+                <p class="block-data">{{weather['current']['temp_c']}}</p>
+            </div>
+            <div class="info-block">
+                <div class="block-title">
+                    <img src="./static/resort/umbrella-solid.svg" alt="" class="block-icon">
+                    <span class="title-text">Humidity</span>
+                </div>
+                <p class="block-data">{{weather['current']['humidity']}}</p>
+            </div>
+            <div class="info-block">
+                <div class="block-title">
+                    <img src="./static/resort/skiing-solid.svg" alt="" class="block-icon">
+                    <span class="title-text">Ski type</span>
+                </div>
+                <p class="block-data">Hard</p>
+            </div>
+            <div class="info-block">
+                <div class="block-title">
+                    <img src="./static/resort/skiing-solid.svg" alt="" class="block-icon">
+                    <span class="title-text">Ski type</span>
+                </div>
+                <p class="block-data">Hard</p>
+            </div>
+            <div class="info-block">
+                <div class="block-title">
+                    <img src="./static/resort/skiing-solid.svg" alt="" class="block-icon">
+                    <span class="title-text">Ski type</span>
+                </div>
+                <p class="block-data">Hard</p>
+            </div>
+            <div class="info-block">
+                <div class="block-title">
+                    <img src="./static/resort/skiing-solid.svg" alt="" class="block-icon">
+                    <span class="title-text">Ski type</span>
+                </div>
+                <p class="block-data">Hard</p>
+            </div>
+            <div class="info-block">
+                <div class="block-title">
+                    <img src="./static/resort/skiing-solid.svg" alt="" class="block-icon">
+                    <span class="title-text">Ski type</span>
+                </div>
+                <p class="block-data">Hard</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

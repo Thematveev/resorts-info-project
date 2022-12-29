@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Unbounded', cursive;
+}
+
+section.info {
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-size: cover;
+    background-image: url("https://images.pexels.com/photos/290452/pexels-photo-290452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+
+.resort-name {
+    color: black;
+    background-color: white;
+    padding: 15px;
+    font-size: 48px;
+    text-align: center;
+}
+
+.blocks-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 900px;
+    margin: auto;
+    gap: 24px;
+    padding: 12px;
+}
+
+@media (max-width: 795px) {
+    .blocks-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* 523 */
+
+@media (max-width: 523px) {
+    .blocks-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.info-block {
+    display: inline-block;
+    padding: 19px 45px;
+    background-color: white;
+    border-radius: 24px;
+}
+
+.block-title {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-weight: 600;
+}
+
+.block-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.block-data {
+    text-align: center;
+    font-size: 45px;
+}
