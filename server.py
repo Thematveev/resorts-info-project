@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, redirect, session
 from database import register_new_user, check_login
-from weather import get_weather
+from weather import get_weather, get_snow
+import config
 
 
 server = Flask("app")
-server.secret_key = "test"
+server.secret_key = config.flask_secret_key
 
 
 @server.route("/")
@@ -27,15 +28,15 @@ def resort():
         email = session["email"]
         resort_name = request.form.get("resort_name")
         weather = get_weather(resort_name)
-        
+        snow = get_snow(resort_name)
+
         if weather.get("error"):
             return weather["error"]["message"]
 
-        return render_template("resort.html", weather=weather)
+        return render_template("resort.html", weather=weather, snow=snow)
     except Exception as e:
         print(e)
-        return redirect("/")
-    
+        return "Error! Try again later!"
 
 
 @server.route("/login", methods=["post"])
@@ -58,4 +59,7 @@ def login():
             return "Error! Try again!"
 
 
-server.run()
+server.run(
+    host=config.HOST,
+    port=config.PORT
+)
