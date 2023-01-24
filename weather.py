@@ -2,6 +2,24 @@ import requests
 import config
 import urllib.parse
 
+
+def detect_ski_type(snow_depth):
+    if 1 <= snow_depth < 15:
+        return "Slalom Skies"
+    elif 15 <= snow_depth < 25:
+        return "Universal Skies"
+    else:
+        return "Free Ride Skies"
+
+
+def detect_clothes_type(temp):
+    if temp < -15:
+        return "Heavy Clothing"
+    elif -15 <= temp < 5:
+        return "Medium Clothing"
+    else:
+        return "Light Clothing"
+
 def get_weather(resort_name):
     url = "https://weatherapi-com.p.rapidapi.com/current.json"
     querystring = {"q": resort_name}
@@ -17,7 +35,7 @@ def get_weather(resort_name):
 
 def get_snow(resort_name):
     url = f"https://ski-resort-forecast.p.rapidapi.com/{urllib.parse.quote(resort_name)}/snowConditions"
-    querystring = {"units":"i"}
+    querystring = {"units": "i"}
 
     headers = {
         "X-RapidAPI-Key": config.weather_rapid_api_key,

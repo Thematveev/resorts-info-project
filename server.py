@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 from database import register_new_user, check_login
-from weather import get_weather, get_snow
+from weather import get_weather, get_snow, detect_ski_type, detect_clothes_type
 import config
-
 
 server = Flask("app")
 server.secret_key = config.flask_secret_key
@@ -33,7 +32,22 @@ def resort():
         if weather.get("error"):
             return weather["error"]["message"]
 
-        return render_template("resort.html", weather=weather, snow=snow)
+        try:
+            avg_snow_depth = (int(snow["topSnowDepth"].removesuffix("in")) + int(
+                snow["botSnowDepth"].removesuffix("in"))) / 2
+
+            ski_type = detect_ski_type(avg_snow_depth)
+        except Exception:
+            ski_type = "No Info"
+
+
+        try:
+            temp = weather["current"]["temp_c"]
+            clothes_type = detect_clothes_type(temp)
+        except Exception:
+            clothes_type = "No Info"
+
+        return render_template("resort.html", weather=weather, snow=snow, ski_type=ski_type, clothes_type=clothes_type)
     except Exception as e:
         print(e)
         return "Error! Try again later!"
