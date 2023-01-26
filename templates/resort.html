@@ -49,8 +49,24 @@
                 </div>
                 <p class="block-data">{{clothes_type}}</p>
             </div>
+            <div class="info-block">
+                <div class="block-title">
+                    <img src="./static/resort/skiing-solid.svg" alt="" class="block-icon">
+                    <span class="title-text">Buy Ski Pass</span>
+                </div>
+                <p class="block-data">
+                    {% if website %}
+                    <a href="{{website}}" class="buy">Click</a>
+                    {% else %}
+                    Not found
+                    {% endif %}
+                </p>
+            </div>
             
         </div>
+        {% if area_id %}
+        <iframe class="map" src="https://openskimap.org/?obj={{area_id}}" frameborder="0"></iframe>
+        {% endif %}
     </section>
 </body>
 </html>

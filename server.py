@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 from database import register_new_user, check_login
 from weather import get_weather, get_snow, detect_ski_type, detect_clothes_type
+import map
 import config
 
 server = Flask("app")
@@ -47,7 +48,27 @@ def resort():
         except Exception:
             clothes_type = "No Info"
 
-        return render_template("resort.html", weather=weather, snow=snow, ski_type=ski_type, clothes_type=clothes_type)
+
+        try:
+            map_info = map.get_map_info(resort_name)
+            area_id = map_info[0]["properties"]["id"]
+            website = map_info[0]["properties"]["websites"]
+            if len(website) == 0:
+                website = None
+            else:
+                website = website[0]
+        except Exception:
+            area_id = None
+
+
+        return render_template("resort.html",
+                               weather=weather,
+                               snow=snow,
+                               ski_type=ski_type,
+                               clothes_type=clothes_type,
+                               area_id=area_id,
+                               website=website
+                            )
     except Exception as e:
         print(e)
         return "Error! Try again later!"
