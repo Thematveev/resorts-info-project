@@ -4,11 +4,14 @@
     font-family: 'Unbounded', cursive;
 }
 
+
+
 section.info {
     min-height: 100vh;
     box-sizing: border-box;
     background-size: cover;
     background-image: url("https://images.pexels.com/photos/290452/pexels-photo-290452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    padding-top: 20px;
 }
 
 .resort-name {
@@ -17,6 +20,9 @@ section.info {
     padding: 15px;
     font-size: 48px;
     text-align: center;
+    max-width: 900px;
+    margin: auto;
+    border-radius: 10px;
 }
 
 .blocks-container {

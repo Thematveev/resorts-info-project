@@ -6,10 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resort Information</title>
     <link rel="stylesheet" href="./static/resort/style.css">
+    <link rel="stylesheet" href="./static/bootstrap.css" />
+    <link rel="stylesheet" href="./static/login/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;900&display=swap" rel="stylesheet">
 
 </head>
 <body>
+    <nav class="navbar bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="./static/login/ski.png" alt="Bootstrap" width="30" height="24" />
+            <h3 class="site-name">SkiFinder</h3>
+          </a>
+  
+        </div>
+      </nav>
     <section class="info">
         <h1 class="resort-name">{{weather['location']['name']}}</h1>
         
