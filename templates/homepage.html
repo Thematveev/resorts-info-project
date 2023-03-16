@@ -17,19 +17,22 @@
     <div class="hero">
         <div class="wrapper">
             <div class="hero-content">
-                <form action="/resort" method="post">
+                <form action="/resort" method="get">
                     <input type="text" name="resort_name" placeholder="Resort name" class="hero-input">
                     <input type="submit" class="hero-button" value="search">
                 </form>
+                <!-- last searches block -->
+                <div class="searches">
+                    <ul class="searches-items">
+                        {%for resort in history%}
+                        <li class="searches-item">
+                            <a href="http://127.0.0.1:5000/resort?resort_name={{resort}}">{{resort}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-    <!-- <div class="footer">
-        <div class="wrapper">
-            <div class="footer-content">
-                <img src="./header-logo.png" alt="logo" class="footer-logo">
-            </div>
-        </div>
-    </div> -->
 </body>
 </html>

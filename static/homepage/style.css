@@ -47,11 +47,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 20px;
 }
 
 form {
-    flex-grow: 1;
-    max-width: 85%;
+    width: 85%;
     display: flex;
 }
 
@@ -86,6 +87,38 @@ form {
 }
 
 .hero-button:hover {
+    opacity: 1;
+}
+
+.searches {
+    width: 85%;
+}
+
+
+.searches-items {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    gap: 10px;
+}
+
+.searches-item {
+    width: 33.3%;
+    background-color: white;
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+.searches-item > a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 40px 0;
+}
+
+.searches-item:hover {
     opacity: 1;
 }
 
